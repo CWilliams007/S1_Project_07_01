@@ -1,0 +1,57 @@
+@charset "utf-8";
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 5
+   Case Problem 1
+   
+   Author: Chad Williams
+   Date:   12.4.18
+      
+   
+   Filename: gp_print.css
+
+   This file contains the printer styles used with the sample
+   comic book pages from Golden Pulps.
+
+*/
+
+
+
+/* Hidden Objects */
+/* Step 19 a b c, queries client, if media type is printing then it hides the nav footer&article */
+@media print {
+
+    nav,
+    footer,
+    article {
+        display: none;
+    }
+
+
+}
+
+/* Comic Book Sheet Styles */
+/* Step 19 b&c sets comic book section sheet to a width of 6 inches and centers it, affects all comic book images
+ with different class sizes accordingly. */
+@media print {
+    section#sheet {
+        width: 6in;
+        margin: 0 auto;
+    }
+
+    .size1 {
+        width: 5in;
+    }
+
+    .size2 {
+        width: 3in;
+    }
+
+    .size3 {
+        width: 2in;
+    }
+
+    .size4 {
+        width: 1.5in;
+    }
+}

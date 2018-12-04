@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 5
+   Case Problem 1
+   
+   Author: Chad Williams
+   Date:   12.4.18
+      
+   Filename: gp_layout.css
+
+   This file contains the layout styles and media
+   queries used with sample pages from the Golden
+   Pulps website.
+
+*/
+
+
+/* Import Basic Design Styles Used on All Screens */
+
+@import url("gp_designs.css");
+
+/* Flex Layout Styles */
+body {
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* Step 8, sets width, base size and growth of the comic book sheet section with id sheet */
+section#sheet {
+    flex-basis: 301px;
+    flex-grow: 3;
+    flex-shrink: 1;
+}
+
+/* Step 9, sets shrink and base size of article on right of comic book sheet section */
+article {
+    flex-basis: 180px;
+    flex-grow: 1;
+    flex-shrink: 3;
+}
+
+
+
+
+/* ============================================
+	Mobile Devices: 0 - 480 pixels
+   ============================================
+*/
+/* Step 10 and 11, checks client screen if screen size <480pixels than it begins using these styles making images 
+take up 100% width to create one column */
+@media only screen and (max-width: 480px) {
+    .panel {
+        width: 100%;
+    }
+
+    /* Step 12, puts horizontal nav at bottom of clients screen using flex order */
+    .horizontal {
+        order: 99;
+    }
+
+    /* Step 13, sets the footer that is a direct child of the body element as 100 in the flex order */
+    body>footer {
+        order: 100;
+    }
+}
+
+/* ===================================================
+	Tablet and Desktop Devices: Greater than 480 pixels
+   ===================================================
+*/
+/* Step 14, queries clients screen, if min width is >481pixels than it begins using these css styles */
+@media only screen and (min-width: 481px) {
+
+    /* Step 15, targes ul element, displays as flexbox, no wrapping, sets height 40px */
+    ul {
+        display: -webkit-flex;
+        flex-wrap: nowrap;
+        height: 40px;
+    }
+
+    /* Step 16, targets listed items in unordered lists sets growth and shrink rates to auto so they scale to clients screen  */
+    ul li {
+        flex-grow: 1 auto;
+        flex-shrink: 1 auto;
+    }
+
+    /* Step 17, setting width of .size1-4 images for wider screens and fits them in rows */
+    .size1 {
+        width: 100%;
+    }
+
+    .size2 {
+        width: 60%;
+    }
+
+    .size3 {
+        width: 40%;
+    }
+
+    .size4 {
+        width: 30%;
+    }
+}
